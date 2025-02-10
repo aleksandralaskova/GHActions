@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that outputs "The Horrors persist, but so do I"
+
+echo 'The Horrors persist, but so do I'

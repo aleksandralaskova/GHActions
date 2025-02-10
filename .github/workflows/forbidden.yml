@@ -1,0 +1,25 @@
+name: Check for Forbidden Word
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-forbidden-word:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Search for forbidden word
+        run: |
+          if grep -r "Horror" .; then
+            echo "Error: The word 'Horror' was found in the repository."
+            exit 1
+          else
+            echo "No forbidden words found."
+          fi
